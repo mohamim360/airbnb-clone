@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBer = () => {
   return (
     <div>
        <div>
-        <header className="p-6 flex justify-between">
+        <header className=" flex justify-between">
           <a href="" className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +66,7 @@ const NavBer = () => {
               />
             </svg>
          
-            <div className="bg-gray-500 rounded-full border-gary-500 text-white overflow-hidden">
+            <Link to="/login" className="bg-gray-500 rounded-full border-gary-500 text-white overflow-hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -78,7 +79,7 @@ const NavBer = () => {
                 clipRule="evenodd"
               />
             </svg>
-            </div>
+            </Link>
           </div>
         </header>
       </div>
