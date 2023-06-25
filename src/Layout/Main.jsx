@@ -1,4 +1,4 @@
-import React from 'react';
+
 import NavBer from '../NavBer/NavBer';
 import { Outlet } from 'react-router-dom';
 

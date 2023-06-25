@@ -1,7 +1,11 @@
-import React from 'react';
+
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../UserContext';
+
 
 const NavBer = () => {
+  const {user} = useContext(UserContext);
   return (
     <div>
        <div>
@@ -49,7 +53,7 @@ const NavBer = () => {
             </button>
           </div>
 
-          <div className="flex items-center  gap-2 border border-gray-400 rounded-full py-2 px-4">
+          <div className="flex items-center  gap-2 border border-gray-400 rounded-full py-2 px-4 ">
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +70,9 @@ const NavBer = () => {
               />
             </svg>
          
-            <Link to="/login" className="bg-gray-500 rounded-full border-gary-500 text-white overflow-hidden">
+            <Link to={user ? "/account":"/login"}
+            className='flex'>
+            <div  className="bg-gray-500 rounded-full border-gary-500 text-white overflow-hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -79,7 +85,16 @@ const NavBer = () => {
                 clipRule="evenodd"
               />
             </svg>
+            </div>
+            {
+              !!user && (
+                <div className='px-1'>
+                  {user.name}
+                </div>
+              )
+            }
             </Link>
+           
           </div>
         </header>
       </div>
