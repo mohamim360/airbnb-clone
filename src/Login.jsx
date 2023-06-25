@@ -12,15 +12,22 @@ const Login = () => {
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const {data} = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("/login", {
         email,
         password,
       });
+      
+      const { data, headers } = response;
+      const token = headers && headers["set-cookie"] && headers["set-cookie"][0];
+
+      document.cookie = token;
+
       alert("login success");
       setUser(data);
       setRedirect(true);
-    } catch {
-      alert("login failed");
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login failed");
     }
   }
 

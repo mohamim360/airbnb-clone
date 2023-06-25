@@ -10,7 +10,7 @@ const Register = () => {
   async function handelRegister(e) {
     e.preventDefault();
     try{
-      await axios.post("http://localhost:5000/register", {
+      await axios.post("/register", {
         name,
         email,
         password,

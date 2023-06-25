@@ -3,18 +3,25 @@ import Main from "../Layout/Main";
 import Login from "../Login";
 import Register from "../Register";
 import { UserContextProvider } from "../UserContext";
+import Account from "../Account";
+import axios from "axios";
+
+axios.defaults.baseURL='http://localhost:5000'
+axios.defaults.withCredentials = true;
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <UserContextProvider>
-      <Main></Main>
-      </UserContextProvider>,
+    element: (
+      <UserContextProvider>
+        <Main></Main>
+      </UserContextProvider>
+    ),
     children: [
-      { path: "/login",
-       element: <Login></Login> },
-      { path: "/register",
-       element: <Register></Register> }
+      { path: "/login", element: <Login></Login> },
+      { path: "/register", element: <Register></Register> },
+      { path: "/account/:subpage?", element: <Account></Account> },
+      
     ],
   },
 ]);
