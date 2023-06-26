@@ -5,7 +5,9 @@
 input[type='text'],input[type="password"],input[type="email"],input[type='number'],textarea{
   @apply w-full border my-2 py-3 px-5 rounded-3xl
 }
-
+textarea{
+  height: 150px;
+}
 
 button.primary{
       
