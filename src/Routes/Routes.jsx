@@ -5,6 +5,8 @@ import Register from "../Register";
 import { UserContextProvider } from "../UserContext";
 import Account from "../Account";
 import axios from "axios";
+import Places from "../Pages/Places";
+import PlacesForm from "../Pages/PlacesForm";
 
 axios.defaults.baseURL='http://localhost:5000'
 axios.defaults.withCredentials = true;
@@ -20,8 +22,9 @@ export const router = createBrowserRouter([
     children: [
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
-      { path: "/account/:subpage?", element: <Account></Account> },
-      { path: "/account/:subpage/:action", element: <Account></Account> }    
+      { path: "/account/", element: <Account></Account> },
+      { path: "/account/places", element: <Places></Places> } ,  
+      { path: "/account/places/new", element: <PlacesForm></PlacesForm> }    
     ],
   },
 ]);

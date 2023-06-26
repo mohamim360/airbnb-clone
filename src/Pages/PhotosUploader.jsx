@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const PhotosUploader = ({ addedPhotos, onChange }) => {
+const PhotosUploader = ({ addedPhotos, onChanges }) => {
   const [imageLink, setImageLink] = useState("");
 
   async function photosLink(e) {
@@ -10,7 +10,7 @@ const PhotosUploader = ({ addedPhotos, onChange }) => {
       link: imageLink,
     });
 
-    onChange((prev) => {
+    onChanges((prev) => {
       return [...prev, filename];
     });
     setImageLink("");
@@ -29,7 +29,7 @@ const PhotosUploader = ({ addedPhotos, onChange }) => {
       })
       .then((response) => {
         const { data: filenames } = response;
-        onChange((prev) => {
+        onChanges((prev) => {
           return [...prev, ...filenames];
         });
       });
