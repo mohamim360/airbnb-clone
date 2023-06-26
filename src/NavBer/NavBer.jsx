@@ -10,14 +10,14 @@ const NavBer = () => {
     <div>
        <div>
         <header className=" flex justify-between">
-          <Link to='/' className="flex items-center gap-2">
+          <Link to='/' className="flex items-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-10 h-9 pt-1"
+              className="w-6 h-9 pt-1"
             >
               <path
                 strokeLinecap="round"
