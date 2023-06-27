@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
   return (
-    <div className='p-5 flex, flex-col min-h-screen'>
+    <div className='py-4 px-8 flex, flex-col min-h-screen'>
       <NavBer></NavBer>
       <Outlet></Outlet>
     </div>
