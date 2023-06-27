@@ -1,7 +1,8 @@
 import axios from "axios";
 import { differenceInCalendarDays } from "date-fns/fp";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 const BookWidget = ({ place }) => {
   const [checkIn, setCheckIn] = useState("");
@@ -10,6 +11,13 @@ const BookWidget = ({ place }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [redirect, setRedirect] = useState("");
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+    }
+  }, [user]);
 
   let nights = 0;
   if (checkIn && checkOut) {
@@ -17,6 +25,16 @@ const BookWidget = ({ place }) => {
   }
 
   async function handelBooking() {
+    if (!checkIn || !checkOut || !guests || !name || !phone) {
+      alert("Please fill in all the input fields.");
+      return;
+    }
+
+    if (!user) {
+      alert("Please log in to book this place.");
+      return;
+    }
+
     const response = await axios.post("/bookings", {
       checkIn,
       checkOut,
@@ -88,7 +106,8 @@ const BookWidget = ({ place }) => {
         )}
       </div>
 
-      <button onClick={handelBooking} className="primary">
+      <button onClick={handelBooking}
+      className="primary">
         Book this place
         {nights > 0 && <span> ${nights * place.price}</span>}
       </button>

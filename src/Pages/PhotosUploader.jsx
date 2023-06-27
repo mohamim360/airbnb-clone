@@ -3,9 +3,17 @@ import { useState } from "react";
 
 const PhotosUploader = ({ addedPhotos, onChanges }) => {
   const [imageLink, setImageLink] = useState("");
+  const isImageLinkEmpty = imageLink.trim() === "";
 
   async function photosLink(e) {
+    
     e.preventDefault();
+    
+    if (isImageLinkEmpty) {
+      alert('Please provide photo url')
+      return; 
+    }
+  
     const { data: filename } = await axios.post("/upload-link", {
       link: imageLink,
     });
@@ -53,11 +61,12 @@ const PhotosUploader = ({ addedPhotos, onChanges }) => {
       <div className="flex">
         <input
           type="text"
+          
           value={imageLink}
           onChange={(e) => setImageLink(e.target.value)}
           placeholder="Add using a link....jpg"
         />
-        <button onClick={photosLink} className="bg-gray-200 px-4 rounded-2xl">
+        <button  onClick={photosLink} className="bg-gray-200 px-4 rounded-2xl">
           Add&nbsp;photo
         </button>
       </div>

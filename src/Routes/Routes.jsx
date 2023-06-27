@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
       { path: "/", element: <IndexPage></IndexPage> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
-      { path: "/account/", element: <Account></Account> },
+      { path: "/account", element: <Account></Account> },
       { path: "/account/places", element: <Places></Places> } ,  
       { path: "/account/places/new", element: <PlacesForm></PlacesForm> }, 
       { path: "/account/places/:id", element: <PlacesForm></PlacesForm> },  

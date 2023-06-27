@@ -13,7 +13,8 @@ const IndexPage = () => {
   return (
     <div className="mt-8 gap-y-8 gap-x-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
      {
-      places.length > 0 && places.map(place =>(
+      places.length > 0 ? ( places.map(place =>(
+        
         <div key={place._id}>
           <Link to={'/place/'+place._id} className="bg-gray-500 rounded-2xl flex">
           {
@@ -29,6 +30,8 @@ const IndexPage = () => {
           </div>
         </div>
       ))
+      ):(<p>No places found</p>) 
+
      }
     </div>
   );

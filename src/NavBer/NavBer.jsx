@@ -53,7 +53,7 @@ const NavBer = () => {
             </button>
           </div>
 
-          <div className="flex items-center  gap-2 border border-gray-400 rounded-full py-2 px-4 ">
+          <div className="flex   gap-2 border border-gray-400 rounded-full py-2 px-4 ">
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const NavBer = () => {
             </div>
             {
               !!user && (
-                <div className='px-1'>
+                <div className='pl-1  '>
                   {user.name}
                 </div>
               )

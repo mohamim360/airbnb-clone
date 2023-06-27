@@ -87,6 +87,7 @@ const PlacesForm = () => {
         )}
         <input
           type="text"
+          required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="title"
@@ -95,6 +96,7 @@ const PlacesForm = () => {
         {input("Address", "Address to this place")}
         <input
           type="text"
+          required
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           placeholder="address"
@@ -110,6 +112,7 @@ const PlacesForm = () => {
         {input("Descriptions", "description of the place")}
         <textarea
           value={description}
+          required
           onChange={(e) => setDescription(e.target.value)}
         />
         {input("Perks", "select all the parks of your place")}
@@ -132,6 +135,7 @@ const PlacesForm = () => {
             <h3 className="mt-2 -mb-1">Check in time</h3>
             <input
               type="text"
+              required
               value={checkIn}
               onChange={(e) => setCheckIn(e.target.value)}
             />
@@ -140,6 +144,7 @@ const PlacesForm = () => {
             <h3 className="mt-2 -mb-1">Check out time</h3>
             <input
               type="text"
+              required
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
             />
@@ -148,6 +153,7 @@ const PlacesForm = () => {
             <h3 className="mt-2 -mb-1">Max number of guests</h3>
             <input
               type="text"
+              required
               value={maxGuests}
               onChange={(e) => setMaxGuests(e.target.value)}
             />
@@ -156,6 +162,7 @@ const PlacesForm = () => {
             <h3 className="mt-2 -mb-1">Price per night</h3>
             <input
               type="text"
+              required
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
